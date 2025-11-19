@@ -12,7 +12,6 @@
 
         <div class="card-body d-flex flex-column">
           <h5 class="card-title">{{ movie.title }}</h5>
-          <!-- Descripción corta -->
           <p class="card-text text-muted flex-grow-1">
             {{ movie.shortDescription}}
           </p>
@@ -24,7 +23,6 @@
             Director:
             {{movie.director}}
           </p>
-          <!-- Botón que navega al detalle -->
           <a
             class="btn btn-primary mt-2 align-self-start"
             href="/movie/{{ movie.id }}"
