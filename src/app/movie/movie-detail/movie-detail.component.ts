@@ -8,5 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class MovieDetailComponent implements OnInit {
   @Input() movie: any;
-  ngOnInit(): void {}
+  ngOnInit(): void {
+
+  }
 }

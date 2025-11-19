@@ -1,31 +1,41 @@
-<h1>Lista de Películas</h1>
-<div>
-  <div>
-    @if(selected){
-    <app-movie-detail [movie]="selectedMovie"></app-movie-detail>
-    }
-    <table>
-      <tr>
-        <th scope="col">Título</th>
-        <th scope="col">Poster</th>
-        <th scope="col">Director</th>
-        <th scope="col">Año</th>
-        <th scope="col">Calificación</th>
-      </tr>
-      @for(movie of movies; track movie.id) {
+<div class="container my-4">
+  <h1 class="text-center mb-4">Lista de Peliculas</h1>
 
-      <tr (click)="onSelect(movie)">
-        <td>
-          <b>{{ movie.title }}</b>
-        </td>
-        <td>
-          <img class="poster-img" [src]="movie.posterImageUrl" alt="{{ movie.title }} poster" />
-        </td>
-        <td>{{ movie.director }}</td>
-        <td>{{ movie.releaseYear }}</td>
-        <td>{{ movie.rating }}</td>
-      </tr>
-      }
-    </table>
+  <div class="row g-4">
+    <div class="col-md-3" *ngFor="let movie of movies">
+      <div class="card h-100 shadow-sm">
+        <img
+          [src]="movie.posterImageUrl"
+          class="card-img-top"
+          alt="{{ movie.title }}"
+        >
+
+        <div class="card-body d-flex flex-column">
+          <h5 class="card-title">{{ movie.title }}</h5>
+          <!-- Descripción corta -->
+          <p class="card-text text-muted flex-grow-1">
+            {{ movie.shortDescription}}
+          </p>
+          <p class="card-text mb-1">
+            Año:
+              {{ movie.releaseYear }}
+          </p>
+          <p class = card-text text-mutes>
+            Director:
+            {{movie.director}}
+          </p>
+          <!-- Botón que navega al detalle -->
+          <a
+            class="btn btn-primary mt-2 align-self-start"
+            href="/movie/{{ movie.id }}"
+          >
+            Ver detalle
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+
+

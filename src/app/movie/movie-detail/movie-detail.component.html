@@ -11,6 +11,7 @@
     <p><strong>Sinopsis:</strong> {{ movie?.description }}</p>
   </div>
   <div>
+    <app-movie-detail></app-movie-detail>
     <h3>Reparto:</h3>
     <app-actor-list [actors]="movie?.cast"></app-actor-list>
   </div>
